@@ -54,6 +54,12 @@ mod fortran_extractor;
 mod fsharp_extractor;
 #[cfg(feature = "lang-glsl")]
 mod glsl_extractor;
+#[cfg(feature = "lang-wgsl")]
+mod wgsl_extractor;
+#[cfg(feature = "lang-hlsl")]
+mod hlsl_extractor;
+#[cfg(feature = "lang-metal")]
+mod metal_extractor;
 #[cfg(feature = "lang-gwbasic")]
 mod gwbasic_extractor;
 #[cfg(feature = "lang-haskell")]
@@ -141,6 +147,12 @@ pub use fortran_extractor::FortranExtractor;
 pub use fsharp_extractor::FSharpExtractor;
 #[cfg(feature = "lang-glsl")]
 pub use glsl_extractor::GlslExtractor;
+#[cfg(feature = "lang-wgsl")]
+pub use wgsl_extractor::WgslExtractor;
+#[cfg(feature = "lang-hlsl")]
+pub use hlsl_extractor::HlslExtractor;
+#[cfg(feature = "lang-metal")]
+pub use metal_extractor::MetalExtractor;
 #[cfg(feature = "lang-gwbasic")]
 pub use gwbasic_extractor::GwBasicExtractor;
 #[cfg(feature = "lang-haskell")]
@@ -271,6 +283,12 @@ impl LanguageRegistry {
         extractors.push(Box::new(DockerfileExtractor));
         #[cfg(feature = "lang-glsl")]
         extractors.push(Box::new(GlslExtractor));
+        #[cfg(feature = "lang-wgsl")]
+        extractors.push(Box::new(WgslExtractor));
+        #[cfg(feature = "lang-hlsl")]
+        extractors.push(Box::new(HlslExtractor));
+        #[cfg(feature = "lang-metal")]
+        extractors.push(Box::new(MetalExtractor));
         #[cfg(feature = "lang-markdown")]
         extractors.push(Box::new(MarkdownExtractor));
         #[cfg(feature = "lang-r")]
