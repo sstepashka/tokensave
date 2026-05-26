@@ -151,8 +151,8 @@ impl HlslExtractor {
     // -------------------------------------------------------
 
     fn visit_function_definition(state: &mut ExtractionState, node: TsNode<'_>) {
-        let name = Self::extract_function_name(state, node)
-            .unwrap_or_else(|| "<anonymous>".to_string());
+        let name =
+            Self::extract_function_name(state, node).unwrap_or_else(|| "<anonymous>".to_string());
         let signature = Some(Self::extract_function_signature(state, node));
         let start_line = node.start_position().row as u32;
         let end_line = node.end_position().row as u32;

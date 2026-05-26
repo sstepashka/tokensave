@@ -69,9 +69,15 @@ mod tests {
         // Keys provided by optional direct deps — checked separately so the test
         // is skipped when the feature is not enabled.
         #[cfg(feature = "lang-wgsl")]
-        assert!(super::LANGUAGES.get("wgsl").is_some(), "wgsl grammar missing");
+        assert!(
+            super::LANGUAGES.get("wgsl").is_some(),
+            "wgsl grammar missing"
+        );
         #[cfg(feature = "lang-hlsl")]
-        assert!(super::LANGUAGES.get("hlsl").is_some(), "hlsl grammar missing");
+        assert!(
+            super::LANGUAGES.get("hlsl").is_some(),
+            "hlsl grammar missing"
+        );
         let missing: Vec<&str> = keys
             .iter()
             .copied()
